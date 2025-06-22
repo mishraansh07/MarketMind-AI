@@ -18,7 +18,7 @@ st.markdown(
 
 File_uploader = st.file_uploader("Please Uplaod Your File", type=["csv"])
 
-openai = st.secrets["openai"]["api_key"]
+#openai = st.secrets["openai"]["api_key"]
 
 #Pandas CSV
 
