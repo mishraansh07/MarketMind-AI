@@ -5,12 +5,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
 
-# Page Config
+# ✅ Page Config
 st.set_page_config(page_title="MarketMind AI", layout="wide")
 
-#  Custom CSS for top-left aligned minimal nav
+# ✅ Custom CSS for responsive mobile nav
 st.markdown("""
     <style>
+    @media (max-width: 768px) {
+        .nav-radio label {
+            display: block !important;
+            margin: 10px 0 !important;
+        }
+    }
     .nav-radio label {
         display: inline-block;
         margin-right: 20px;
@@ -19,12 +25,14 @@ st.markdown("""
         font-size: 16px;
     }
     .block-container {
-        padding-top: 2rem;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     </style>
 """, unsafe_allow_html=True)
 
-#  Navigation bar
+# Navigation
 nav = st.radio("Navigation", ["📊 Dashboard", "👨‍💻 About Developer", "📘 About Project"], horizontal=True, key="nav-radio")
 
 if nav == "👨‍💻 About Developer":
@@ -32,7 +40,7 @@ if nav == "👨‍💻 About Developer":
     st.markdown("""
     ### Hey there! I'm Ansh Mishra ✨
 
-    I'm a 19-year-old aspiring AI/ML engineer and the creative mind behind **MarketMind AI** — my first full-fledged AI-powered marketing analytics dashboard.
+    I'm a 17-year-old aspiring AI/ML engineer and the creative mind behind **MarketMind AI** — my first full-fledged AI-powered marketing analytics dashboard.
 
     - 🎓 B.Tech (AI & ML) Student at IILM University, Greater Noida
     - 💡 Passionate about AI, Automation, and UI/UX
@@ -62,7 +70,7 @@ elif nav == "📘 About Project":
     1. Prepare your marketing data in a CSV with these columns:
         - `Campaign`, `Impressions`, `Clicks`, `Spend (₹)`, `Conversions`
     2. Upload the CSV in the dashboard
-    3. The Tool will:
+    3. This tool will:
         - Validate and preview your data
         - Calculate performance KPIs
         - Show improvement suggestions
@@ -77,7 +85,7 @@ else:
     <h2 style='text-align: center; color: #00c4b4;'>📊 Welcome to MarketMind AI Dashboard</h2>
     """, unsafe_allow_html=True)
 
-#logic field starting here 
+    #loging strating Point
 
     required_columns = ["Campaign", "Impressions", "Clicks", "Spend (₹)", "Conversions"]
     File_uploader = st.file_uploader("📁 Upload Your Marketing CSV File", type=["csv"])
